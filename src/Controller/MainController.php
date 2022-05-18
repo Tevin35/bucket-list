@@ -12,14 +12,12 @@ class MainController extends AbstractController
     public function index(): Response
     {
         //Déclaration de mes variables que je vais passer à ma vue.
-        $productCount = 222;
-        $username = "Denis";
+        $username = "Tevin";
         $controller_name="MainController";
 
 
         return $this->render('main/index.html.twig', [
             'controller_name' => 'MainController',
-            'productCount' =>$productCount,
             'username' =>$username,
         ]);
 
@@ -50,8 +48,24 @@ class MainController extends AbstractController
         return $this->render('main/test.html.twig');
     }
 
+    /**
+     * Affiche une page à propos
+     * @return Response
+     */
+    #[Route('/about_us', name: 'about_us')]
     public function aboutUs(): Response
     {
-        return "à propos de nous";
+        return $this->render('main/about-us.html.twig');
     }
+
+/*
+     * Affiche la page wishlist
+     * @return Response
+
+    #[Route('/wishlist', name: 'wishlist')]
+    public function wishlist(): Response
+    {
+        return $this->render('wish/index.html.twig');
+    }
+    */
 }
