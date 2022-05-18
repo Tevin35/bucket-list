@@ -1,0 +1,11 @@
+html{
+    background-color:tomato;
+}
+
+body{
+    font-family: 'Hachi Maru Pop', cursive;
+}
+
+.crumbs{
+    display: inline-block;
+}
