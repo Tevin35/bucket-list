@@ -49,4 +49,9 @@ class MainController extends AbstractController
     {
         return $this->render('main/test.html.twig');
     }
+
+    public function aboutUs(): Response
+    {
+        return "à propos de nous";
+    }
 }
