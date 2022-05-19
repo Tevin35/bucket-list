@@ -1,1 +1,12 @@
 {% extends 'base.html.twig' %}
+
+{% block title %}Liste des livres{% endblock %}
+
+{% block body %}
+    <h1>Liste des livres</h1>
+    <ul>
+        {%for wish in listWishs%}
+            <li>{{wish.id}} - {{wish.title}} - {{wish.description}} - {{wish.author}}</li>
+        {%endfor%}
+    </ul>
+{% endblock %}

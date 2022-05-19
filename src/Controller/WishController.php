@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Controller;
-
+use App\Repository\WishRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
 
 class WishController extends AbstractController
 {
@@ -20,21 +21,36 @@ class WishController extends AbstractController
 
     }
 
-    #[Route('/wish', name: 'wish_index')]
+    #[Route('/wishIndex', name: 'wish_index')]
     public function wishIndex(): Response
     {
         return $this->render('wish/index.html.twig');
     }
 
-    #[Route('/wish', name: 'wishlist')]
-    public function list(): Response
+    #[Route('/wish/list', name: 'list')]
+    public function list(WishRepository $wishRepository): Response
     {
-        return $this->render('wish/list.html.twig');
+        $listWishs = $wishRepository ->findBy();
+        return $this->render('wish/list.html.twig', [
+            'listWishs' => $listWishs,
+        ]);
     }
 
-    #[Route('/wish', name: 'wishdetail')]
+    #[Route('/wish/detail', name: 'wishdetail')]
     public function detail(): Response
     {
         return $this->render('wish/detail.html.twig');
+    }
+
+    #[Route('/wish/delete/{id}', name: 'delete')]
+    public function delete($id,WishRepository $wishRepository): Response
+    {
+        $wish = $wishRepository->find($id);
+        $wishRepository->remove($wish,true);
+        echo "suppression du souhait effectuée";
+        die();
+        /*return $this->render('book/add.html.twig', [
+            'controller_name' => 'BookController',
+        ]);*/
     }
 }
