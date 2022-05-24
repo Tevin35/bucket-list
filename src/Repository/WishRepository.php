@@ -63,4 +63,13 @@ class WishRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+    public function sortedByDate()
+    {
+        return $this->createQueryBuilder('w')
+            ->andWhere('w.isPublished = 1')
+            ->orderBy('w.dateCreated', 'DESC')
+            ->getQuery()
+            ->getArrayResult()
+            ;
+    }
 }

@@ -2,3 +2,6 @@ html{
 
 background-color:tomato;
 }
+*label{
+    display: block;
+}

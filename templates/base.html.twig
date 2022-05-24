@@ -31,17 +31,33 @@
             <li class="crumb"><a href="{{ path('test') }}">Page test</a></li>
             <li class="crumb"><a href="{{ path('app_main') }}">Page main</a></li>
             <li class="crumb"><a href="{{ path('about_us') }}">à propos</a></li>
+{#
             <li class="crumb"><a href="{{ path('wish_index') }}">Index des idées</a></li>
-            <li class="crumb"><a href="{{ path('list') }}">Liste des idées</a></li>
+#}
+{#
+            <li class="crumb"><a href="{{ path('wish_list') }}">Liste des idées</a></li>
+#}
+{#
             <li class="crumb"><a href="{{ path('wishdetail') }}">Détail des idées</a></li>
+#}
+            <li class="crumb"><a href="{{ path('wish_add') }}">Ajouter un souhait</a></li>
+
         </ol>
     </nav>
     {% endblock %}
     <body>
         {% block body %}{% endblock %}
     </body>
-
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="flash-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
     <footer>
         {% block footer %}©Bucket-List {{'now' | date('Y')}} - <a href="{{ path('app_rgpd') }}">Mentions légales</a>{%endblock%}
     </footer>
+
+
 </html>

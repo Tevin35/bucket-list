@@ -1,7 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Détail du livre{% endblock %}
+{% block title %}Détail du souhait{% endblock %}
 
-{% block body %}
-
+{% block main %}
+    <h1>Detail Wish - {{id}}</h1>
+    <ul>
+        <li>{{wish.title}}</li>
+        <li>{{wish.description}}</li>
+        <li>{{wish.author}}</li>
+        <li>{{wish.isPublished}}</li>
+        <li>{{wish.dateCreated|date("d-m-Y h:m:s")}}</li>
+    </ul>
 {% endblock %}

@@ -4,21 +4,10 @@
 
 {% block body %}
     <h1>Création d'un souhait</h1>
-    {# 1ère form #}
-    {# {{form(productForm)}} #}
-
-    {#    {{ form_start(productForm) }}#}
-    {#    {{ form_widget(productForm) }}#}
-    {#    <button>Enregistrer</button>#}
-    {#    {{ form_end(productForm) }}#}
-
-    {# forme éclatée de ouf #}
-
     {{ form_start(wishForm) }}
-    {{ form_row(wishForm.name) }}
-    {{ form_row(wishForm.author) }}
-    {{ form_row(wishForm.description) }}
+    {{ form_widget(wishForm) }}
     <button>Enregistrer</button>
-    {{ form_end(productForm) }}
+    {{ form_end(wishForm) }}
+
 
 {% endblock %}
